@@ -1,0 +1,25 @@
+### 1. DEFINING WORKFLOWS ###
+### 2. CORE COMPONENTS ###
+
+name: Java CI/CD with Maven
+
+### 3. EVENTS / TRIGGERS ###
+### 4. WORKFLOW EXECUTION ###
+
+on: # on [required] - name of GitHub event that triggers the workflow
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# ^^^ specifying triggers n all dat
+
+jobs: # jobs [required] - have at least one or more jobs, sequence of tasks (steps). steps can run commands, setup tasks, or run an action
+  build:
+  ### 5. RUNNERS ###
+  runs-on: ubuntu-latest
+  ### 6. ACTIONS ###
+  steps:
+    # uses - select an action, under path action/ the reusable code is hosted
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
